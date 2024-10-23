@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implement a stack using an array</title>
+  </head>
+
+  <body>
+    <script>
+      // Initialize an empty array to represent the stack
+      let stack = [];
+      let size = 0; 
+
+      // Function to push an element onto the stack
+      function push(value) {
+        stack[size] = value; 
+        size++; 
+      }
+
+      // Function to pop an element from the stack
+      function pop() {
+        if (size === 0) {
+          throw new Error("Stack is empty");
+        }
+        size--; 
+        const topValue = stack[size];        
+        return topValue;
+      }
+
+      // Function to peek at the top element of the stack
+      function peek() {
+        if (size === 0) {
+          throw new Error("Stack is empty");
+        }
+        return stack[size - 1]; 
+      }
+
+      // Function to check if the stack is empty
+      function isEmpty() {
+        return size === 0;
+      }
+
+      // Function to get the size of the stack
+      function getSize() {
+        return size;
+      }
+
+      // usage
+      push(10);
+      push(20);
+      push(30);
+
+      console.log("Peek:", peek()); // Output: Peek: 30
+      console.log("Pop:", pop()); // Output: Pop: 30
+      console.log("Peek after pop:", peek()); // Output: Peek after pop: 20
+      console.log("Stack size:", getSize()); // Output: Stack size: 2
+      console.log("Is stack empty?", isEmpty()); // Output: Is stack empty? false
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the intersection of two arrays</title>
+  </head>
+
+  <body>
+    <script>
+      let arr1 = [1, 2, 3, 4, 5];
+      let arr2 = [3, 4, 5, 6, 7];
+
+      let blankArray = [];
+      let index = 0; 
+
+      for (let i = 0; i < arr1.length; i++) {
+        // Check if the current element of arr1 exists in arr2
+        for (let j = 0; j < arr2.length; j++) {
+          if (arr1[i] === arr2[j]) {
+            // Check if the element is already in blankArray to avoid duplicates
+            let alreadyAdded = false;
+            for (let k = 0; k < index; k++) {
+              if (blankArray[k] === arr1[i]) {
+                alreadyAdded = true;
+                break;
+              }
+            }
+            if (!alreadyAdded) {
+              blankArray[index] = arr1[i]; 
+              index++; 
+            }
+            break; 
+          }
+        }
+      }
+
+      // Output => Define array1 is: [1,2,3,4,5] and array2 is: [3,4,5,6,7] intersect two arrays is: [3,4,5]
+      console.log("Define array1 is: [" + arr1 + "] and array2 is: [" +  arr2 + "] intersect two arrays is: [" + blankArray + "]");
+
+    </script>
+  </body>
+</html>

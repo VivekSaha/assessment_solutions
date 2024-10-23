@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count the occurrence of each element in an array</title>
+  </head>
+
+  <body>
+    <script>
+      let arr = [10, 20, 20, 30, 30, 40, 40];
+      let uniqueElements = [];
+      let counts = [];
+      let index = 0; 
+      
+      for (let i = 0; i < arr.length; i++) {
+        let currentElement = arr[i];
+        let found = false;
+
+        // Check if the current element is already in uniqueElements array
+        for (let j = 0; j < index; j++) {
+          if (uniqueElements[j] === currentElement) {
+            counts[j]++; 
+            found = true;
+            break; 
+          }
+        }
+
+        // If the element is not found, add it to the arrays
+        if (!found) {
+          uniqueElements[index] = currentElement; 
+          counts[index] = 1; 
+          index++; 
+        }
+      }
+
+      // Initialize the result string
+      let resultString = [];
+      
+      for (let i = 0; i < index; i++) {
+        if (i > 0) resultString += ", "; 
+        resultString += uniqueElements[i] + ": " + counts[i];
+      }
+
+      // Output => The define array is: [10,20,20,30,30,40,40] and Count the occurrence of each element in this array 10: 1, 20: 2, 30: 2, 40: 2
+      console.log("The define array is: [" + arr + "] and Count the occurrence of each element in this array " + resultString);
+
+    </script>
+  </body>
+</html>

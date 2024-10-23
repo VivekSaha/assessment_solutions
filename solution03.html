@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check if a string is a palindrome</title>
+</head>
+
+<body>
+    <script>
+        // Try string ex:- rotator, repaper, deified & reviver and number ex:- 121, 16461
+        let str = "rotator"; 
+        let blankStr = "";
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+            if (char >= 'a' && char <= 'z' || char >= '0' && char <= '9') {
+                blankStr += char;
+            }
+        }
+        let initial = 0;
+        let last = blankStr.length - 1;
+        let isPalindrome = true; 
+        while (initial < last) {
+            if (blankStr[initial] !== blankStr[last]) {
+                isPalindrome = false;
+                break;
+            }
+            initial++;
+            last--;
+        }
+        // Output => Given string rotator is true for palindrome
+        console.log("Given string " + str + " is " + isPalindrome + " for palindrome"); 
+
+    </script>
+</body>
+</html>

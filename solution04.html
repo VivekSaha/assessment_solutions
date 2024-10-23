@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the missing number in an array</title>
+</head>
+
+<body>
+    <script>
+        // Define array
+        let arr = [1, 2, 4, 5, 6]; 
+        let n = 6; 
+
+        // Calculate the expected sum of numbers from 1 to n
+        let expectedTotal = n * (n + 1) / 2;
+
+        // Calculate the actual Total of elements in the array
+        let actualTotal = 0;
+        for (let i = 0; i < arr.length; i++) {
+            actualTotal += arr[i];
+        }
+
+        // The missing number is the difference between the expected Total and the actual Total
+        let missingNumber = expectedTotal - actualTotal;
+
+        // Output => The define array is: [1,2,4,5,6] and the missing number in this array is: 3
+        console.log("The define array is: [" + arr + "] and the missing number in this array is: " + missingNumber); 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the length of the longest substring without repeating characters</title>
+  </head>
+
+  <body>
+    <script>
+      let str = "vivek kumar vivek vivek";
+      let start = 0; 
+      let maxLength = 0; 
+      
+      // Assuming ASCII characters 
+      let lastSeen = new Array(128);
+      for (let i = 0; i < 128; i++) {
+        lastSeen[i] = -1; 
+      }
+
+      for (let end = 0; end < str.length; end++) {
+        // Get the ASCII value of the character
+        let char = str[end];
+        let asciiValue = char.charCodeAt(0);
+        
+        if (lastSeen[asciiValue] >= start) {
+          start = lastSeen[asciiValue] + 1;
+        }
+        
+        lastSeen[asciiValue] = end;
+        
+        let currentLength = end - start + 1;
+        
+        if (currentLength > maxLength) {
+          maxLength = currentLength;
+        }
+      }
+
+      // Output=> Define str is: vivek kumar vivek vivek and length of the longest substring without repeating characters is: 8
+      console.log("Define str is: " + str + " and length of the longest substring without repeating characters is: " + maxLength);
+      
+    </script>
+  </body>
+</html>

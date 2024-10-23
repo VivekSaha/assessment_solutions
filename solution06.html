@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove duplicates from an array</title>
+  </head>
+
+  <body>
+    <script>
+      let arr = [10, 22, 30, 22, 40, 30, 50, 10, 107];
+      let result = [];
+      let index = 0; 
+
+      for (let i = 0; i < arr.length; i++) {
+        let isDuplicate = false;
+        // Check if the current element is already in the result array
+        for (let j = 0; j < index; j++) {
+          if (arr[i] === result[j]) {
+            isDuplicate = true;
+            break;
+          }
+        }
+        
+        if (!isDuplicate) {
+          result[index] = arr[i];
+          index++;
+        }
+      }
+      // Output=> The define array is: [10,22,30,22,40,30,50,10,107] and after removing duplicates from this array: [10,22,30,40,50,107]
+      console.log("The define array is: [" + arr + "] and after removing duplicates from this array: [" + result + "]"); 
+
+    </script>
+  </body>
+</html>

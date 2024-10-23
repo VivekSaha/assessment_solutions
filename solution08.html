@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the second largest element in an array</title>
+  </head>
+
+  <body>
+    <script>
+      let arr = [10, 30, 40, 50, 90, 20, 56];
+
+      let largest = -Infinity;
+      let secondLargest = -Infinity;
+      
+      for (let i = 0; i < arr.length; i++) {
+        let current = arr[i];
+        if (current > largest) {
+          secondLargest = largest; 
+          largest = current; 
+        } else if (current > secondLargest && current !== largest) {
+          secondLargest = current; 
+        }
+      }
+
+      //Output=> Define array is: [10,30,40,50,90,20,56] and the second largest element in this array: 56
+      console.log("Define array is: [" + arr + "] and the second largest element in this array:", secondLargest === -Infinity ? null : secondLargest);
+
+    </script>
+  </body>
+</html>

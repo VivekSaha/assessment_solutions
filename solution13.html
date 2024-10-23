@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implement a queue using an array</title>
+  </head>
+
+  <body>
+    <script>
+      // Initialize the queue and indices
+      let queue = [];
+      let front = 0; 
+      let rear = 0; 
+
+      // Function to add an element to the queue
+      function enqueue(value) {
+        queue[rear] = value;
+        rear++; 
+      }
+
+      // Function to remove and return the front element of the queue
+      function dequeue() {
+        if (front === rear) {
+          throw new Error("Queue is empty");
+        }
+        // Get the element at the front index
+        const value = queue[front];
+        front++; 
+        return value;
+      }
+
+      // Function to view the front element of the queue without removing it
+      function peek() {
+        if (front === rear) {
+          throw new Error("Queue is empty");
+        }
+        return queue[front];
+      }
+
+      // Function to check if the queue is empty
+      function isEmpty() {
+        return front === rear;
+      }
+
+      // Function to get the size of the queue
+      function getSize() {
+        return rear - front;
+      }
+
+      // usage
+      enqueue(10);
+      enqueue(20);
+      enqueue(30);
+
+      console.log("Peek:", peek()); // Output: Peek: 10
+      console.log("Dequeue:", dequeue()); // Output: Dequeue: 10
+      console.log("Peek after dequeue:", peek()); // Output: Peek after dequeue: 20
+      console.log("Queue size:", getSize()); // Output: Queue size: 2
+      console.log("Is queue empty?", isEmpty()); // Output: Is queue empty? false
+
+    </script>
+  </body>
+</html>

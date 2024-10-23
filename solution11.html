@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse a linked list</title>
+  </head>
+
+  <body>
+    <script>
+      let linkedList = [
+        [1, 1], 
+        [2, 2], 
+        [3, 3], 
+        [4, 4], 
+        [5, -1], 
+      ];
+
+      // Reverse the linked list
+      let prev = -1; 
+      let currentIndex = 0; 
+      let nextIndex = -1;
+
+      // Traverse and reverse the list
+      while (currentIndex !== -1) {
+        nextIndex = linkedList[currentIndex][1]; 
+        linkedList[currentIndex][1] = prev; 
+        prev = currentIndex; 
+        currentIndex = nextIndex; 
+      }
+
+      let reversedHead = prev;
+
+      // Print the reversed linked list
+      let result = "";
+      let nodeIndex = reversedHead;
+      while (nodeIndex !== -1) {
+        result +=
+          linkedList[nodeIndex][0] +
+          (linkedList[nodeIndex][1] !== -1 ? " -> " : "");
+        nodeIndex = linkedList[nodeIndex][1];
+      }
+
+      // Output=> Reverse a linked list: 5 -> 4 -> 3 -> 2 -> 1
+      console.log("Reverse a linked list: " + result);
+      
+    </script>
+  </body>
+</html>
